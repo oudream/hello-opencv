@@ -1,0 +1,30 @@
+[submodule "referto/learnopencv"]
+	path = referto/learnopencv
+	url = https://github.com/spmallick/learnopencv.git
+[submodule "referto/OpenCV-Python-Tutorial"]
+	path = referto/OpenCV-Python-Tutorial
+	url = https://github.com/makelove/OpenCV-Python-Tutorial.git
+[submodule "referto/Learning-OpenCV-3_examples"]
+	path = referto/Learning-OpenCV-3_examples
+	url = https://github.com/oreillymedia/Learning-OpenCV-3_examples.git
+[submodule "referto/OpenCV3-Intro-Book-Src"]
+	path = referto/OpenCV3-Intro-Book-Src
+	url = https://github.com/QianMo/OpenCV3-Intro-Book-Src.git
+[submodule "referto/faceai"]
+	path = referto/faceai
+	url = https://github.com/vipstone/faceai.git
+[submodule "referto/AutoRCCar"]
+	path = referto/AutoRCCar
+	url = https://github.com/hamuchiwa/AutoRCCar.git
+[submodule "referto/FaceTracker"]
+	path = referto/FaceTracker
+	url = https://github.com/kylemcdonald/FaceTracker.git
+[submodule "referto/FastAnnotationTool"]
+	path = referto/FastAnnotationTool
+	url = https://github.com/christopher5106/FastAnnotationTool.git
+[submodule "referto/mathAI"]
+	path = referto/mathAI
+	url = https://github.com/Roujack/mathAI.git
+[submodule "referto/openpose"]
+	path = referto/openpose
+	url = https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
