@@ -1,31 +1,24 @@
 #!/usr/bin/env bash
 
-# https://github.com/opencv/opencv/wiki
-# https://docs.opencv.org/4.1.2/d9/df8/tutorial_root.html
-# https://www.tutorialspoint.com/opencv/opencv_quick_guide.htm
-
-
-# examples c++
-# https://github.com/spmallick/learnopencv
-# https://github.com/oreillymedia/Learning-OpenCV-3_examples
-
-
-# mat
-# https://docs.opencv.org/4.1.2/d3/d63/classcv_1_1Mat.html
-
-
 
 ### install's cmd
-git clone https://github.com/opencv/opencv.git --recursive
-git clone https://github.com/opencv/opencv_contrib.git --recursive
-
-cd opencv
-
-export CONDA_HOME=/opt/fff/anaconda3 
-export SRC_OPENCV_CONTRIB_PATH=/opt/limi/opencv_contrib 
-export SRC_OPENCV_PATH=/opt/limi/opencv 
+# variable define
+export _PATH=/opt/limi
+export CONDA_HOME=/opt/fff/anaconda3
+# opencv-v4.1.2
+cd ${_PATH}
+git clone https://github.com/opencv/opencv.git --recursive && \
+    cd opencv && \
+    git reset --hard 4c71dbf
+# opencv_contrib-v4.1.2
+cd ${_PATH}
+git clone https://github.com/opencv/opencv_contrib.git --recursive && \
+    cd opencv_contrib && \
+    git reset --hard 83e98d2
+#
+export SRC_OPENCV_CONTRIB_PATH=${_PATH}/opencv_contrib
+export SRC_OPENCV_PATH=${_PATH}/opencv
 export CPLUS_INCLUDE_PATH=${CONDA_HOME}/bin/python3
-
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D OPENCV_EXTRA_MODULES_PATH=${SRC_OPENCV_CONTRIB_PATH}/modules \
@@ -50,6 +43,7 @@ make -j 4
 sudo make install
 
 
+
 ### clion define
 -D CMAKE_BUILD_TYPE=RELEASE
 -D CMAKE_INSTALL_PREFIX=/usr/local
@@ -66,5 +60,3 @@ sudo make install
 -D BUILD_EXAMPLES=ON
 
 
-
-conda clean --all
