@@ -5,6 +5,9 @@ add_subdirectory(image/load1)
 
 add_subdirectory(color/convert1)
 add_subdirectory(color/inrange1)
+add_subdirectory(color/addWeighted1)
+
+add_subdirectory(math/stat1)
 
 add_subdirectory(video/capture1)
 
