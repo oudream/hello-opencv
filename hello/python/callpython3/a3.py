@@ -1,5 +1,5 @@
 import os
-fd = "/opt/limi/hello-cmake/hello/python/callpython3/main.cpp"
+fd = "/opt/limi/hello-opencv/hello/python/callpython3/main.cpp"
 
 # popen() is similar to open()
 # file = open(fd, 'w')

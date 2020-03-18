@@ -2,12 +2,21 @@
 ---
 
 # Git clone
-- git clone https://github.com/oudream/hello-opencv --recursive
+```bash
+git clone https://github.com/oudream/hello-opencv
+# refer to multi project of github, So the size of the folder is huge 
+# git clone https://github.com/oudream/hello-opencv --recursive
 
+# deploy path:
+cd hello-opencv/build/deploy/unix/bin_d
+cd /opt/limi/hello-opencv/build/deploy/unix/bin_d
 
+```
 
 ### reference
 - https://github.com/CMU-Perceptual-Computing-Lab/openpose
+- https://github.com/OlafenwaMoses/ImageAI
+
 - https://www.learnopencv.com/
 - https://github.com/spmallick/learnopencv
 - https://github.com/makelove/OpenCV-Python-Tutorial

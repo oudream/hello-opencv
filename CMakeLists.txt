@@ -8,12 +8,14 @@
 
 cmake_minimum_required(VERSION 3.10)
 
-project(hello-cmake)
+project(hello-opencv)
 
 set(gs_project_path ${CMAKE_CURRENT_SOURCE_DIR})
 
 include(build/cmake/local.config.cmake)
 include(build/cmake/utils.cmake)
 include(build/cmake/fs.cmake)
+
+add_subdirectory(examples/org/cpp)
 
 add_subdirectory(build/cmake)

@@ -1,4 +1,6 @@
 
+set(CMAKE_CXX_STANDARD 11)
+
 message("------------gs_project_path: " ${gs_project_path})
 set(gs_hello_path ${gs_project_path}/hello)
 set(gs_3rd_path ${gs_project_path}/3rd)

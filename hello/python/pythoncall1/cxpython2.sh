@@ -108,4 +108,4 @@ python3 setup.py build_ext --inplace
 #    running build_ext
 #    building 'sample' extension
 #    gcc -Wno-unused-result -Wsign-compare -Wunreachable-code -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I/opt/fff/anaconda3/include -arch x86_64 -I/opt/fff/anaconda3/include -arch x86_64 -DFOO=1 -UBAR -I/some/dir -I/opt/fff/anaconda3/include/python3.7m -c sample.c -o build/temp.macosx-10.7-x86_64-3.7/sample.o
-#    gcc -bundle -undefined dynamic_lookup -L/opt/fff/anaconda3/lib -arch x86_64 -L/opt/fff/anaconda3/lib -arch x86_64 -arch x86_64 build/temp.macosx-10.7-x86_64-3.7/sample.o -L/usr/local/lib -L/usr/lib -o /opt/limi/hello-cmake/hello/python/cpython2/sample.cpython-37m-darwin.so
+#    gcc -bundle -undefined dynamic_lookup -L/opt/fff/anaconda3/lib -arch x86_64 -L/opt/fff/anaconda3/lib -arch x86_64 -arch x86_64 build/temp.macosx-10.7-x86_64-3.7/sample.o -L/usr/local/lib -L/usr/lib -o /opt/limi/hello-opencv/hello/python/cpython2/sample.cpython-37m-darwin.so

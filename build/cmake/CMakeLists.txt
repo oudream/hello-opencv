@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.10)
 
-project(hello-cmake)
+project(hello-opencv)
 
 if (NOT gc_project_path)
     set(gs_project_path ${CMAKE_CURRENT_SOURCE_DIR}/../..)
@@ -16,3 +16,5 @@ include(fs.cmake)
 include(opencv.cmake)
 
 add_subdirectory(hello)
+
+add_subdirectory(examples)

@@ -1,15 +1,16 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
+
 using namespace std;
 using namespace cv;
 
 
-void fn_outFile1(const cv::Mat & m)
+void fn_outFile(const cv::Mat & m, const string & fp)
 {
     //使用ofstream来输出mat
-    std::ofstream Fs("test.txt");
-    if( !Fs.is_open() )
+    std::ofstream fs(fp);
+    if( !fs.is_open() )
     {
         std::cout<<"open file error!"<<std::endl;
         return;
@@ -22,49 +23,39 @@ void fn_outFile1(const cv::Mat & m)
     {
         for( int j=0; j<width; j++ )
         {
-            Fs<<(int)m.ptr<uchar>(i)[j]<<'\t';
+            fs << (int)m.ptr<uchar>(i)[j] << '\t';
             //不加类型转换用txt打开是字符
         }
-        Fs<<std::endl;
+        fs << std::endl;
     }
 
-    Fs.close();
+    fs.close();
 }
 
-int helloFromLiteral()
+int helloFromImage1(const string & sFilePath)
 {
-    cv::Mat m = (cv::Mat_<uchar>(3,3) << 1,2,3,
-        4,5,6,
-        7,8,9);
-    cout << "helloFromLiteral.mat: " << endl << m << endl;
-    fn_outFile1(m);
-    return 0;
-}
+    Mat srcImage = imread(sFilePath);
 
-int helloFromImage1()
-{
-    //创建一个2*2 类型为8位的uchar类型三通道的 颜色为黄色
-    Mat img(2, 2, CV_8UC3, Scalar(0, 255, 255));
-    cout << "helloFromImage1.mat: " << endl << img << endl;
-    return 0;
-}
+    imshow("【测试代码】", srcImage);
 
-int helloMultDims1()
-{
-    int sz[3] = { 2, 2, 2 };
-    //3维的  为2*2*2的   元素全部为0
-    Mat array2(3, sz, CV_8UC1, Scalar(0));
-    // *** 因为是三维的，所以不能用DOS界面显示
-    // cout << "矩阵元素" << endl << array2 << endl;
+    while (1)
+    {
+        if (waitKey(10)>0)
+            break;
+    }
     return 0;
 }
 
 int main(int argc, char *argv[])
 {
-    helloFromLiteral();
+    string sExecFilePath = argv[0][0] != '/' ? (argv[0][0] == '.' ? string(getenv("PWD"))+string(argv[0]).substr(1) : string(string(getenv("PWD"))+"/"+string(argv[0]))) : string(argv[0]);
+    replace(sExecFilePath.begin(), sExecFilePath.end(), '\\', '/');
+    string sBinPath = sExecFilePath.find_last_of("/\\") != string::npos ? sExecFilePath.substr(0, sExecFilePath.find_last_of("/\\")) : string();
+    string sOsFilePath = sBinPath.find_last_of("/\\") != string::npos ? sBinPath.substr(0, sBinPath.find_last_of("/\\")) : string();
+    string sDeployFilePath = sOsFilePath.find_last_of("/\\") != string::npos ? sOsFilePath.substr(0, sOsFilePath.find_last_of("/\\")) : string();
+    cout << sExecFilePath << endl;
 
-    helloFromImage1();
+    helloFromImage1(sDeployFilePath+"/images/cars.jpg");
 
-    helloMultDims1();
-
+    return 0;
 }

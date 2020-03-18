@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+### On OSX EI Caption I install succeed!
+brew install ffmpeg --use-clang
+#brew install ffmpeg --use-gcc
+brew tap homebrew/science
+brew install --HEAD opencv --with-ffmpeg
+
+
 
 ### install's cmd
 # variable define
@@ -26,6 +33,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D PYTHON3_INCLUDE_DIR=${CONDA_HOME}/include/python3.7m \
     -D PYTHON3_EXECUTABLE=${CONDA_HOME}/bin/python \
     -D PYTHON3_PACKAGES_PATH=${CONDA_HOME}/lib/python3.7/site-packages \
+    -D WITH_FFMPEG=ON \
     -D BUILD_opencv_python2=OFF \
     -D BUILD_opencv_python3=ON \
     -D INSTALL_PYTHON_EXAMPLES=ON \
@@ -43,7 +51,6 @@ make -j 4
 sudo make install
 
 
-
 ### clion define
 -D CMAKE_BUILD_TYPE=RELEASE
 -D CMAKE_INSTALL_PREFIX=/usr/local
@@ -52,6 +59,7 @@ sudo make install
 -D PYTHON3_INCLUDE_DIR=/opt/fff/anaconda3/include/python3.7m
 -D PYTHON3_EXECUTABLE=/opt/fff/anaconda3/bin/python
 -D PYTHON3_PACKAGES_PATH=/opt/fff/anaconda3/lib/python3.7/site-packages
+-D WITH_FFMPEG=ON
 -D BUILD_opencv_python2=OFF
 -D BUILD_opencv_python3=ON
 -D INSTALL_PYTHON_EXAMPLES=ON

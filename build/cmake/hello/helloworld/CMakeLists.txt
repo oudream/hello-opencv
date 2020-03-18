@@ -3,7 +3,7 @@ set(gsl_helloworld_files
         main.cpp
         )
 
-mc_merge_file_path(${gs_hello_path}/core/mat/create1 "${gsl_helloworld_files}" gsl_helloworld_files_filepaths)
+mc_merge_file_path(${gs_hello_path}/helloworld "${gsl_helloworld_files}" gsl_helloworld_files_filepaths)
 
 add_executable(helloworld
         ${gsl_helloworld_files_filepaths}
