@@ -2,6 +2,7 @@
 add_subdirectory(mat/create1)
 
 add_subdirectory(image/load1)
+add_subdirectory(image/zoom1)
 
 add_subdirectory(color/convert1)
 add_subdirectory(color/inrange1)

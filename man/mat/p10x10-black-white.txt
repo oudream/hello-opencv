@@ -1,0 +1,136 @@
+       Mat srcImage = imread(sFilePath, IMREAD_COLOR);
+       cout << srcImage.size << endl;
+       cout << srcImage.type() << endl;
+       cout << srcImage.depth() << endl;
+       cout << srcImage.total() << endl;
+       cout << srcImage.elemSize() << endl;
+       cout << srcImage.elemSize1() << endl;
+       cout << srcImage.depth() << endl;
+       cout << srcImage.channels() << endl;
+
+  10 x 10
+  24
+  0
+  100
+  4
+  1
+  0
+  4
+
+  000004ff  323233ff  4c4c4dff  616162ff   │ ····223·LLM·aab· │
+  747474ff  858585ff  949494ff  a2a2a2ff   │ ttt············· │
+  afafafff  bcbcbcff  323233ff  4c4c4dff   │ ········223·LLM· │
+  616162ff  747474ff  858585ff  949494ff   │ aab·ttt········· │
+  a2a2a2ff  afafafff  bcbcbcff  c7c7c7ff   │ ················ │
+  4c4c4dff  616162ff  747474ff  858585ff   │ LLM·aab·ttt····· │
+  949494ff  a2a2a2ff  afafafff  bcbcbcff   │ ················ │
+  c7c7c7ff  d1d1d1ff  616162ff  747474ff   │ ········aab·ttt· │
+  858585ff  949494ff  a2a2a2ff  afafafff   │ ················ │
+  bcbcbcff  c7c7c7ff  d1d1d1ff  dadadaff   │ ················ │
+  747474ff  858585ff  949494ff  a2a2a2ff   │ ttt············· │
+  afafafff  bcbcbcff  c7c7c7ff  d1d1d1ff   │ ················ │
+  dadadaff  e3e3e3ff  858585ff  949494ff   │ ················ │
+  a2a2a2ff  afafafff  bcbcbcff  c7c7c7ff   │ ················ │
+  d1d1d1ff  dadadaff  e3e3e3ff  eaeaeaff   │ ················ │
+  949494ff  a2a2a2ff  afafafff  bcbcbcff   │ ················ │
+  c7c7c7ff  d1d1d1ff  dadadaff  e3e3e3ff   │ ················ │
+  eaeaeaff  f1f1f1ff  a2a2a2ff  afafafff   │ ················ │
+  bcbcbcff  c7c7c7ff  d1d1d1ff  dadadaff   │ ················ │
+  e3e3e3ff  eaeaeaff  f1f1f1ff  f7f7f7ff   │ ················ │
+  afafafff  bcbcbcff  c7c7c7ff  d1d1d1ff   │ ················ │
+  dadadaff  e3e3e3ff  eaeaeaff  f1f1f1ff   │ ················ │
+  f7f7f7ff  fbfbfbff  bcbcbcff  c7c7c7ff   │ ················ │
+  d1d1d1ff  dadadaff  e3e3e3ff  eaeaeaff   │ ················ │
+  f1f1f1ff  f7f7f7ff  fbfbfbff  ffffffff   │ ················ │
+
+
+
+      Mat srcImage = imread(sFilePath, IMREAD_UNCHANGED);
+      cout << srcImage.size << endl;
+      cout << srcImage.type() << endl;
+      cout << srcImage.depth() << endl;
+      cout << srcImage.total() << endl;
+      cout << srcImage.elemSize() << endl;
+      cout << srcImage.elemSize1() << endl;
+      cout << srcImage.depth() << endl;
+      cout << srcImage.channels() << endl;
+
+  10 x 10
+  16
+  0
+  100
+  3
+  1
+  0
+  3
+
+    00000432  32334c4c  4d616162  74747485   │ ···223LLMaabttt· │
+    85859494  94a2a2a2  afafafbc  bcbc3232   │ ··············22 │
+    334c4c4d  61616274  74748585  85949494   │ 3LLMaabttt······ │
+    a2a2a2af  afafbcbc  bcc7c7c7  4c4c4d61   │ ············LLMa │
+    00000000  01000000  c0efd066  8a7f0000   │ ···········f···· │
+    c0efd066  8a7f0000  2c010000  00000000   │ ···f····,······· │
+    00000000  000000d0  00000000  00000000   │ ················ │
+    00000000  00000000  00000000  00000000   │ ················ │
+    00000000  00000000  00000000  00000000   │ ················ │
+    54656155  492e466c  6f77426c  75657072   │ TeaUI.FlowBluepr │
+    696e744c  61796f75  74436f6c  6c656374   │ intLayoutCollect │
+    696f6e53  65637469  6f6e536f  6c766572   │ ionSectionSolver │
+    00eaf1f1  f1f7f7f7  fbfbfbff  fffff7ff   │ ················ │
+    fbfbfbff  ffffffff  00000000  00000000   │ ················ │
+    00000000  00000000  01000000  04000000   │ ················ │
+    00000000  00000000  00000000  00000000   │ ················ │
+    00000000  00000000  00000000  00000800   │ ················ │
+    4b6e6f77  6c656467  65477261  70684b69   │ KnowledgeGraphKi │
+    742e4d41  54656e73  6f720000  00000002   │ t.MATensor······ │
+    bcbcbcff  c7c7c7ff  d1d1d1ff  dadadaff   │ ················ │
+    e3e3e3ff  eaeaeaff  f1f1f1ff  f7f7f7ff   │ ················ │
+    fbfbfbff  ffffffff  00000000  00000000   │ ················ │
+    00000000  00000000  00000000  00000000   │ ················ │
+    00000000  00000000  00000000  00000000   │ ················ │
+    00000000  00000000  60f2d066  8a7f1000   │ ········`··f···· │
+    53746f63  6b73436f  72652e41  7070436f   │ StocksCore.AppCo │
+    6e666967  75726174  696f6e53  746f7265   │ nfigurationStore │
+    000d0d0d  000d0d0d  00022f32  32001a1a   │ ··········/22··· │
+    1a001515  15001213  13001111  11000f0f   │ ················ │
+    0f000e0e  0e000d0d  0d000d0d  0d000b0b   │ ················ │
+    0b00021a  1a1a0015  15150012  13130011   │ ················ │
+    1111000f  0f0f000e  0e0e000d  0d0d000d   │ ················ │
+    0d0d000b  0b0b000a  0a0a0002  15151500   │ ················ │
+    41707053  746f7265  4b69742e  50726f64   │ AppStoreKit.Prod │
+    7563744d  65646961  000b0b00  0a0a0a00   │ uctMedia········ │
+    09090900  02121313  00111111  000f0f0f   │ ················ │
+
+    00000000  000000d0  00000000  000000d0   │ ················ │
+    11007566  00000000  00000000  00000200   │ ··uf············ │
+    20446573  63726970  746f7250  726f746f   │  DescriptorProto │
+    73000000  00000000  616d6574  65720400   │ s·······ameter·· │
+    41000000  00000000  3e000000  00000000   │ A·······>······· │
+    41707053  746f7265  4b69742e  4a535061   │ AppStoreKit.JSPa │
+    636b6167  65496e64  657800a6  f8070070   │ ckageIndex·····p │
+    04007072  6f746f62  75662f70  726f746f   │ ··protobuf/proto │
+    632d6765  6e2d676f  2f646573  63726970   │ c-gen-go/descrip │
+    746f723b  64657363  72697074  6f720a00   │ tor;descriptor·· │
+    06475042  00000000  00000000  00000000   │ ·GPB············ │
+    00000000  00000000  00000000  00000c00   │ ················ │
+    31000000  00000000  1a000000  00000000   │ 1··············· │
+    00000000  000000d0  00000000  000000d0   │ ················ │
+    04000000  000000d0  98106da6  f8070080   │ ··········m····· │
+    0300666c  65637469  6f6e00a6  f80700f0   │ ··flection······ │
+
+    6d657465  72000000  00000000  00006400   │ meter·········d· │
+    38274a0c  01000000  00000000  00000000   │ 8'J············· │
+    45030000  00000000  70ffd166  8a7f0000   │ E·······p··f···· │
+    a8854a0c  01000000  90ffd166  8a7f0000   │ ··J········f···· │
+    a8854a0c  01000000  a8854a0c  01000000   │ ··J·······J····· │
+    00000000  00000000  2a000000  00000000   │ ········*······· │
+    01000000  0b000000  00000000  00000000   │ ················ │
+    00000000  000000d0  00000000  000000d0   │ ················ │
+    07000000  00000000  00000000  00000200   │ ················ │
+    31000000  00000000  1b000000  00000000   │ 1··············· │
+    b0ffd166  8a7f0000  00000000  00000000   │ ···f············ │
+    00000000  000000d0  54266da6  f80700f0   │ ········T&m····· │
+    03005061  72616d65  74657200  00000000   │ ··Parameter····· │
+    00000000  00000000  00000000  0000d00a   │ ················ │
+    38274a0c  01000000  00000000  00000000   │ 8'J············· │
+    45030000  00000000  4000d266  8a7f0000   │ E·······@··f···· │

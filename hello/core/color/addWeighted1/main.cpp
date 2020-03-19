@@ -22,8 +22,8 @@ double alpha;
 double beta;
 
 /** Matrices to store images */
-Mat src1;
-Mat src2;
+Mat f_zoom2_src1;
+Mat f_zoom2_src2;
 Mat dst;
 
 typedef void (*AddFun)(const uchar *, const uchar *, const uchar *, int, int, double, double, double);
@@ -105,7 +105,7 @@ static void on_trackbar(int, void *)
 {
     alpha = (double) alpha_slider / alpha_slider_max;
     beta = (1.0 - alpha);
-    MyaddWeight2(src1, alpha, src2, beta, 0.0, dst);
+    MyaddWeight2(f_zoom2_src1, alpha, f_zoom2_src2, beta, 0.0, dst);
 //    addWeighted(src1, alpha, src2, beta, 0.0, dst);
     imshow("Linear Blend", dst);
 }
@@ -124,16 +124,16 @@ int main(int argc, char *argv[])
 
     //![load]
     /// Read images ( both have to be of the same size and type )
-    src1 = imread(samples::findFile(f_paDeploy + "/data/pic3.png"));
-    src2 = imread(samples::findFile(f_paDeploy + "/data/pic5.png"));
+    f_zoom2_src1 = imread(samples::findFile(f_paDeploy + "/data/pic3.png"));
+    f_zoom2_src2 = imread(samples::findFile(f_paDeploy + "/data/pic5.png"));
     //![load]
 
-    if (src1.empty())
+    if (f_zoom2_src1.empty())
     {
         cout << "Error loading src1 \n";
         return -1;
     }
-    if (src2.empty())
+    if (f_zoom2_src2.empty())
     {
         cout << "Error loading src2 \n";
         return -1;

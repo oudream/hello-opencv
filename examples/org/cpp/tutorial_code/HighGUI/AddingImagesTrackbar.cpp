@@ -18,8 +18,8 @@ double alpha;
 double beta;
 
 /** Matrices to store images */
-Mat src1;
-Mat src2;
+Mat f_zoom2_src1;
+Mat f_zoom2_src2;
 Mat dst;
 
 //![on_trackbar]
@@ -31,7 +31,7 @@ static void on_trackbar( int, void* )
 {
    alpha = (double) alpha_slider/alpha_slider_max ;
    beta = ( 1.0 - alpha );
-   addWeighted( src1, alpha, src2, beta, 0.0, dst);
+   addWeighted(f_zoom2_src1, alpha, f_zoom2_src2, beta, 0.0, dst);
    imshow( "Linear Blend", dst );
 }
 //![on_trackbar]
@@ -44,12 +44,12 @@ int main( void )
 {
    //![load]
    /// Read images ( both have to be of the same size and type )
-   src1 = imread( samples::findFile("LinuxLogo.jpg") );
-   src2 = imread( samples::findFile("WindowsLogo.jpg") );
+   f_zoom2_src1 = imread(samples::findFile("LinuxLogo.jpg") );
+    f_zoom2_src2 = imread(samples::findFile("WindowsLogo.jpg") );
    //![load]
 
-   if( src1.empty() ) { cout << "Error loading src1 \n"; return -1; }
-   if( src2.empty() ) { cout << "Error loading src2 \n"; return -1; }
+   if( f_zoom2_src1.empty() ) { cout << "Error loading src1 \n"; return -1; }
+   if( f_zoom2_src2.empty() ) { cout << "Error loading src2 \n"; return -1; }
 
    /// Initialize values
    alpha_slider = 0;
