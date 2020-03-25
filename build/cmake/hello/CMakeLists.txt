@@ -11,7 +11,9 @@ add_subdirectory(helloworld)
 
 add_subdirectory(core)
 
-add_subdirectory(imgproc/canny1)
+add_subdirectory(imgproc)
+
+add_subdirectory(imgtrans)
 
 add_subdirectory(ml/svm1)
 
