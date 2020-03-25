@@ -1,6 +1,11 @@
-
+/**
+ (y-y1)/(y2-y1)=(x-x1)/(x2-x1)
+ y=round(double(x-x1)/(x2-x1)*(y2-y1)+y1)
+ x=round(double(y-y1)/(y2-y1)*(x2-x1)+x1)
+ */
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 using namespace cv;
@@ -640,6 +645,108 @@ Mat getCanny( const std::string& fp)
     return dst;
 }
 
+Mat f_histMat;
+int f_histBrightness = 40;
+int f_histContrast = 40;
+
+static void updateBrightnessContrast( int, void* )
+{
+    int histSize = 64;
+    double a, b;
+    if(f_histContrast > 0 )
+    {
+        double delta = 127. * f_histContrast / 100;
+        a = 255./(255. - delta*2);
+        b = a*(f_histBrightness - delta);
+    }
+    else
+    {
+        double delta = -128. * f_histContrast / 100;
+        a = (256.-delta*2)/255.;
+        b = a * f_histBrightness + delta;
+    }
+
+    Mat dst, hist;
+    f_histMat.convertTo(dst, CV_8U, a, b);
+    imshow("image", dst);
+    //计算直方图
+    calcHist(&dst, 1, 0, Mat(), hist, 1, &histSize, 0);
+    Mat histImage = Mat::ones(200, 320, CV_8U)*255;
+    //归一化
+    normalize(hist, hist, 0, histImage.rows, NORM_MINMAX, CV_32F);
+    histImage = Scalar::all(255);
+    int binW = cvRound((double)histImage.cols/histSize);
+    for( int i = 0; i < histSize; i++ )
+        rectangle( histImage, Point(i*binW, histImage.rows),
+                   Point((i+1)*binW, histImage.rows - cvRound(hist.at<float>(i))), Scalar::all(0), -1, 8, 0 );
+    imshow("histogram", histImage);
+}
+
+int helloHist(const std::string& fp)
+{
+    f_histMat = imread( fp );
+    if(f_histMat.empty())
+    {
+        printf("Can not read the image...\n");
+        return -1;
+    }
+    namedWindow("image", 0);
+    namedWindow("histogram", 0);
+    createTrackbar("brightness", "image", &f_histBrightness, 200, updateBrightnessContrast);
+    createTrackbar("contrast", "image", &f_histContrast, 200, updateBrightnessContrast);
+
+    updateBrightnessContrast(0, 0);
+    return 0;
+}
+
+// ptl : Point Top Left
+int getVPx(const Mat & img, Point p1, Point p2)
+{
+#define GX(y) round(double(y-p1.y)/(p2.y-p1.y)*(p2.x-p1.x)+p1.x)
+    bool bv = abs(p1.x - p2.x) < 3;
+    int iCount = 0;
+    for (int y = p1.y; y < p2.y; ++y)
+    {
+        int x = bv ? p1.x : GX(y);
+        if (img.ptr(y,x)>CT)
+        {
+            ++iCount;
+        }
+    }
+    return iCount;
+}
+
+// ptl : Point Top Left
+// ptr : Point Top Right
+vector<int> getVPxHist(const Mat & img, Point ptl, Point ptr, Point pbl, Point pbr, vector<Point> & pts, vector<Point> & pbs)
+{
+    vector<int> vpxes;
+    int lt = ptr.x - ptl.x;
+    int lb = pbr.x - pbl.x;
+#define GTY(x) round(double(x-ptl.x)/(ptr.x-ptl.x)*(ptr.y-ptl.y)+ptl.y)
+#define GBY(x) round(double(x-pbl.x)/(pbr.x-pbl.x)*(pbr.y-pbl.y)+pbl.y)
+    // CV_8UC1
+    int tLen = ptr.x - ptl.x;
+    bool bvt = abs(ptr.y - ptl.y) < 3;
+    bool bvb = abs(pbr.y - pbl.y) < 3;
+    for (int tStep = 0; tStep < tLen; ++tStep)
+    {
+        int xt = ptl.x + tStep;
+        int yt = bvt ? ptl.y : GTY(xt);
+        Point p1(xt, yt);
+        // bStep/tStep=lb/lt 
+        int bStep = round(double(lb) / lt * tStep);
+        int xb = pbl.x + bStep;
+        int yb = bvb ? pbl.y : GTY(xb);
+        Point p2(xb, yb);
+        int vpx = getVPx(img, p1, p2);
+        vpxes.push_back(vpx);
+        pts.push_back(p1);
+        pbs.push_back(p2);
+    }
+    return vpxes;
+}
+
 int helloDrawLine1(const std::string &fp)
 {
 //    initCorner();
@@ -695,6 +802,10 @@ int helloDrawLine1(const std::string &fp)
 //    line(src, pBottomRight2, pTopRight2, cs_color_green);
 //    line(src, pTopRight2, pTopLeft2, cs_color_green);
 //
+    leftCorners.insert(leftCorners.begin(), scTopLeft);
+    rightCorners.insert(rightCorners.begin(), scTopRight);
+    leftCorners.push_back(scBottomLeft);
+    rightCorners.push_back(scBottomRight);
     if (leftCorners.size() == rightCorners.size())
     {
         for (int i = 0; i < leftCorners.size(); ++i)
@@ -707,6 +818,39 @@ int helloDrawLine1(const std::string &fp)
             line(src, pl2, pr2, cs_color_green);
         }
     }
+
+    vector<Point> pts, pbs;
+    vector<int> vpxes = getVPxHist(matThreshold, pTopLeft1, pTopRight1, pBottomLeft1, pBottomRight1, pts, pbs);
+    if (vpxes.size() > 0 && vpxes.size() == pts.size() && vpxes.size() == pbs.size())
+    {
+        std::ofstream fs(f_paDeploy + "/tmp/hist.txt");
+        if (!fs.is_open())
+        {
+            std::cout << "open file error!" << std::endl;
+        }
+        else
+        {
+            std::stringstream ss1;
+            std::stringstream ss2;
+            std::stringstream ss3;
+            std::stringstream ss4;
+            std::stringstream ss5;
+            for (int i = 0; i < vpxes.size(); ++i)
+            {
+                ss1 << std::setfill('0') << std::setw(4) << vpxes[i] << " ";
+                ss2 << std::setfill('0') << std::setw(4) << pts[i].y << " ";
+                ss3 << std::setfill('0') << std::setw(4) << pts[i].x << " ";
+                ss4 << std::setfill('0') << std::setw(4) << pbs[i].y << " ";
+                ss5 << std::setfill('0') << std::setw(4) << pbs[i].x << " ";
+            }
+            fs << ss1.str() << std::endl;
+            fs << ss2.str() << std::endl;
+            fs << ss3.str() << std::endl;
+            fs << ss4.str() << std::endl;
+            fs << ss5.str() << std::endl;
+        }
+    }
+
     imshow("src", src);
     imshow("matInrange", matInrange);
     imshow("matCanny", matCanny);
@@ -728,6 +872,7 @@ int main(int argc, char *argv[])
 
 //    helloInRange1(f_paDeploy + "/images/switch/a.jpeg");
     helloDrawLine1(f_paDeploy + "/images/switch/a.jpeg");
+//    helloHist(f_paDeploy + "/images/switch/a.jpeg");
 
     waitKey(0);
 
