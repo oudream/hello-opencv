@@ -1,4 +1,4 @@
-       Mat srcImage = imread(sFilePath, IMREAD_COLOR);
+       Mat srcImage = imread(sFilePath, IMREAD_UNCHANGED);
        cout << srcImage.size << endl;
        cout << srcImage.type() << endl;
        cout << srcImage.depth() << endl;
@@ -45,7 +45,7 @@
 
 
 
-      Mat srcImage = imread(sFilePath, IMREAD_UNCHANGED);
+      Mat srcImage = imread(sFilePath, IMREAD_COLOR);
       cout << srcImage.size << endl;
       cout << srcImage.type() << endl;
       cout << srcImage.depth() << endl;
