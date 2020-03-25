@@ -109,7 +109,6 @@ static void on_trackbar(int, void *)
 //    addWeighted(src1, alpha, src2, beta, 0.0, dst);
     imshow("Linear Blend", dst);
 }
-//![on_trackbar]
 
 int main(int argc, char *argv[])
 {

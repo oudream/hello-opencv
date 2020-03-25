@@ -10,43 +10,24 @@ using namespace cv;
 
 std::string f_fpExec, f_paBin, f_paOs, f_paDeploy;
 
-void fn_outFile(const cv::Mat & m, const string & fp)
-{
-    //使用ofstream来输出mat
-    std::ofstream fs(fp);
-    if( !fs.is_open() )
-    {
-        std::cout<<"open file error!"<<std::endl;
-        return;
-    }
-
-    //循环输出
-    int height = m.rows;
-    int width = m.cols;
-    for( int i=0; i<height; i++ )
-    {
-        for( int j=0; j<width; j++ )
-        {
-            fs << (int)m.ptr<uchar>(i)[j] << '\t';
-            //不加类型转换用txt打开是字符
-        }
-        fs << std::endl;
-    }
-
-    fs.close();
-}
-
-int helloFromImage1(const string & sFilePath)
+int helloLogicOperation1(const string & sFilePath)
 {
     Mat srcImage = imread(sFilePath,IMREAD_UNCHANGED);
 
-    imshow("【测试代码】", srcImage);
+    Mat matAnd(srcImage.size(), srcImage.type(), Scalar(0xF0, 0x0F, 0xF0));
 
-    while (1)
-    {
-        if (waitKey(10)>0)
-            break;
-    }
+    Mat matOut;
+    bitwise_and(srcImage, matAnd, matOut);
+
+    FileStorage f1(f_paDeploy + "/tmp/001.mat", FileStorage::WRITE);
+    f1 << "srcImage" << srcImage;
+
+    FileStorage f2(f_paDeploy + "/tmp/002.mat", FileStorage::WRITE);
+    f2 << "matAnd" << matAnd;
+
+    FileStorage f3(f_paDeploy + "/tmp/003.mat", FileStorage::WRITE);
+    f3 << "matOut" << matOut;
+
     return 0;
 }
 
@@ -62,40 +43,13 @@ int helloImageMatInfo1(const string & sFilePath)
     cout << srcImage.elemSize1() << endl;
     cout << srcImage.depth() << endl;
     cout << srcImage.channels() << endl;
-    fn_outFile(srcImage, f_paDeploy + "/tmp/001.txt");
+
+    FileStorage f1(f_paDeploy + "/tmp/001.mat", FileStorage::WRITE);
+    f1 << srcImage;
 
     return 0;
 }
 
-int helloImageRepeat1(const std::string& fp, int nx, int ny)
-{
-    Mat3b img = imread(fp);
-
-    Mat dst(img.rows * ny, img.cols * nx, img.type());
-
-    for (int iy = 0; iy < ny; ++iy)
-    {
-        for (int ix = 0; ix < nx; ++ix)
-        {
-            Rect roi(img.cols * ix, img.rows * iy, img.cols, img.rows);
-            img.copyTo(dst(roi));
-        }
-    }
-
-    imshow("img", img);
-    imshow("res", dst);
-    waitKey();
-
-    return 0;
-}
-
-int helloToImage1(const string & sFilePath)
-{
-//    Mat grHistogram(260, 301, CV_8UC3, Scalar(0, 0, 0));
-//    line(grHistrogram,pt1,pt2,Scalar(255,255,255),1,8,0);
-//    imwrite()
-    return 0;
-}
 
 int main(int argc, char *argv[])
 {
@@ -109,9 +63,9 @@ int main(int argc, char *argv[])
 //    helloFromImage1(f_paDeploy+"/images/fruit.jpg");
 //
 //    helloImageMatInfo1(f_paDeploy+"/images/fruit.jpg");
-    helloImageMatInfo1(f_paDeploy+"/images/p10x10-black-white.png");
+//    helloImageMatInfo1(f_paDeploy+"/images/p10x10-black-white.png");
 
-//    helloImageRepeat1(f_paDeploy+"/images/p10x10-black-white.png", 150,100);
+    helloLogicOperation1(f_paDeploy+"/images/p10x10-black-white.png");
 
     return 0;
 }

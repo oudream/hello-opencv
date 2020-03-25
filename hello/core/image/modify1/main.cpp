@@ -10,62 +10,6 @@ using namespace cv;
 
 std::string f_fpExec, f_paBin, f_paOs, f_paDeploy;
 
-void fn_outFile(const cv::Mat & m, const string & fp)
-{
-    //使用ofstream来输出mat
-    std::ofstream fs(fp);
-    if( !fs.is_open() )
-    {
-        std::cout<<"open file error!"<<std::endl;
-        return;
-    }
-
-    //循环输出
-    int height = m.rows;
-    int width = m.cols;
-    for( int i=0; i<height; i++ )
-    {
-        for( int j=0; j<width; j++ )
-        {
-            fs << (int)m.ptr<uchar>(i)[j] << '\t';
-            //不加类型转换用txt打开是字符
-        }
-        fs << std::endl;
-    }
-
-    fs.close();
-}
-
-int helloFromImage1(const string & sFilePath)
-{
-    Mat srcImage = imread(sFilePath,IMREAD_UNCHANGED);
-
-    imshow("【测试代码】", srcImage);
-
-    while (1)
-    {
-        if (waitKey(10)>0)
-            break;
-    }
-    return 0;
-}
-
-int helloImageMatInfo1(const string & sFilePath)
-{
-    Mat srcImage = imread(sFilePath,IMREAD_UNCHANGED);
-//    bitwise_and()
-    cout << srcImage.size << endl;
-    cout << srcImage.type() << endl;
-    cout << srcImage.depth() << endl;
-    cout << srcImage.total() << endl;
-    cout << srcImage.elemSize() << endl;
-    cout << srcImage.elemSize1() << endl;
-    cout << srcImage.depth() << endl;
-    cout << srcImage.channels() << endl;
-    fn_outFile(srcImage, f_paDeploy + "/tmp/001.txt");
-
-    return 0;
-}
 
 int helloImageRepeat1(const std::string& fp, int nx, int ny)
 {
@@ -89,6 +33,19 @@ int helloImageRepeat1(const std::string& fp, int nx, int ny)
     return 0;
 }
 
+int helloImageSplit1(const std::string& fp, const std::string& pa)
+{
+    Mat src = imread(fp, IMREAD_COLOR); //load  image
+
+    Mat bgr[3];   //destination array
+    split(src,bgr);//split source
+
+//Note: OpenCV uses BGR color order
+    imwrite(pa+"/blue.png",bgr[0]); //blue channel
+    imwrite(pa+"/green.png",bgr[1]); //green channel
+    imwrite(pa+"/red.png",bgr[2]); //red channel
+}
+
 int helloToImage1(const string & sFilePath)
 {
 //    Mat grHistogram(260, 301, CV_8UC3, Scalar(0, 0, 0));
@@ -106,12 +63,9 @@ int main(int argc, char *argv[])
     f_paDeploy = f_paOs.find_last_of("/\\") != std::string::npos ? f_paOs.substr(0, f_paOs.find_last_of("/\\")) : std::string();
     cout << "f_paDeploy: " << f_fpExec << endl;
 
-//    helloFromImage1(f_paDeploy+"/images/fruit.jpg");
-//
-//    helloImageMatInfo1(f_paDeploy+"/images/fruit.jpg");
-    helloImageMatInfo1(f_paDeploy+"/images/p10x10-black-white.png");
 
-//    helloImageRepeat1(f_paDeploy+"/images/p10x10-black-white.png", 150,100);
+    helloImageRepeat1(f_paDeploy+"/images/p10x10-black-white.png", 150,100);
+    helloImageSplit1(f_paDeploy+"/images/p10x10-black-white.png", f_paDeploy+"/tmp");
 
     return 0;
 }

@@ -146,8 +146,9 @@ int main(int argc, char *argv[])
 
     // helloZoom1(f_paDeploy+"/images/p10x10-black-white.png");
 
-    helloZoom2(f_paDeploy+"/images/fruit.jpg");
-//    helloZoom2(f_paDeploy+"/images/p10x10-black-white.png");
+    // helloZoom2(f_paDeploy+"/images/fruit.jpg");
+
+    helloZoom2(f_paDeploy+"/images/p10x10-black-white.png");
 
     return 0;
 }
