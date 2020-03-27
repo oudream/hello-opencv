@@ -938,6 +938,8 @@ int helloDrawLine1(const std::string &fp)
 {
 //    initCorner();
 
+    clock_t t = clock();
+
     Mat src = imread(fp);
     if (src.empty())
     {
@@ -1104,6 +1106,9 @@ int helloDrawLine1(const std::string &fp)
 //        }
 //    }
 
+    t = clock() - t;
+    printf ("It took me %lu clicks (%f seconds).\n",t,double(t)/CLOCKS_PER_SEC);
+
     imshow("src", src);
     imshow("matInrange", matInrange);
     imshow("matCanny", matCanny);
@@ -1180,6 +1185,9 @@ int helloCreateImage_8UC3()
 
 int main(int argc, char *argv[])
 {
+
+
+
     f_fpExec = argv[0][0] != '/' ? (argv[0][0] == '.' ? string(getenv("PWD")) + string(argv[0]).substr(1) : string(
         string(getenv("PWD")) + "/" + string(argv[0]))) : string(argv[0]);
     replace(f_fpExec.begin(), f_fpExec.end(), '\\', '/');
@@ -1190,7 +1198,7 @@ int main(int argc, char *argv[])
     cout << "f_paDeploy: " << f_fpExec << endl;
 
 //    helloInRange1(f_paDeploy + "/images/switch/a.jpeg");
-    helloDrawLine1(f_paDeploy + "/images/switch/a.jpeg");
+    helloDrawLine1(f_paDeploy + "/images/switch/c.jpg");
 //    helloHist(f_paDeploy + "/images/switch/a.jpeg");
 //    helloInrange(f_paDeploy + "/images/switch/a.jpeg");
 
