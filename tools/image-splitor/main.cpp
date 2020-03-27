@@ -25,41 +25,41 @@ static Mat CORNER_BOTTOM_LEFT(Size(15, 15), CV_8UC1, Scalar());
 static Mat CORNER_TOP_RIGHT(Size(15, 15), CV_8UC1, Scalar());
 static Mat CORNER_BOTTOM_RIGHT(Size(15, 15), CV_8UC1, Scalar());
 
-static const cv::Scalar cs_color_black = cv::Scalar(0, 0, 0);
-static const cv::Scalar cs_color_green = cv::Scalar(0, 255, 0);
-static const cv::Scalar cs_color_blue = cv::Scalar(255, 0, 0);
-static const cv::Scalar cs_color_cyan = cv::Scalar(255, 255, 0);
-static const cv::Scalar cs_color_red = cv::Scalar(0, 0, 255);
-static const cv::Scalar cs_color_yellow = cv::Scalar(0, 255, 255);
-static const cv::Scalar cs_color_magenta = cv::Scalar(255, 0, 255);
-static const cv::Scalar cs_color_white = cv::Scalar(255, 255, 255);
-static const cv::Scalar cs_color_gray = cv::Scalar(128, 128, 128);
-static const cv::Scalar cs_color_mlab = cv::Scalar(255, 128, 128);
-static const cv::Scalar cs_color_navy = cv::Scalar(0, 0, 128);
-static const cv::Scalar cs_color_olive = cv::Scalar(0, 128, 128);
-static const cv::Scalar cs_color_maroon = cv::Scalar(0, 0, 128);
-static const cv::Scalar cs_color_teal = cv::Scalar(128, 128, 0);
-static const cv::Scalar cs_color_rose = cv::Scalar(128, 0, 255);
-static const cv::Scalar cs_color_azure = cv::Scalar(255, 128, 0);
-static const cv::Scalar cs_color_lime = cv::Scalar(0, 255, 191);
-static const cv::Scalar cs_color_gold = cv::Scalar(0, 215, 255);
-static const cv::Scalar cs_color_brown = cv::Scalar(42, 42, 165);
-static const cv::Scalar cs_color_orange = cv::Scalar(0, 165, 255);
-static const cv::Scalar cs_color_chartreuse = cv::Scalar(0, 255, 128);
-static const cv::Scalar cs_color_orange_red = cv::Scalar(0, 69, 255);
-static const cv::Scalar cs_color_purple = cv::Scalar(128, 0, 128);
-static const cv::Scalar cs_color_indigo = cv::Scalar(130, 0, 75);
-static const cv::Scalar cs_color_pink = cv::Scalar(203, 192, 255);
-static const cv::Scalar cs_color_cherry = cv::Scalar(99, 29, 222);
-static const cv::Scalar cs_color_bluberry = cv::Scalar(247, 134, 79);
-static const cv::Scalar cs_color_raspberry = cv::Scalar(92, 11, 227);
-static const cv::Scalar cs_color_silver = cv::Scalar(192, 192, 192);
-static const cv::Scalar cs_color_violet = cv::Scalar(226, 43, 138);
-static const cv::Scalar cs_color_apricot = cv::Scalar(177, 206, 251);
-static const cv::Scalar cs_color_turquoise = cv::Scalar(208, 224, 64);
-static const cv::Scalar cs_color_celestial_blue = cv::Scalar(208, 151, 73);
-static const cv::Scalar cs_color_amethyst = cv::Scalar(204, 102, 153);
-static const cv::Scalar cs_color_not_set = cv::Scalar(-1, -1, -1);
+static const cv::Scalar BGR_BLACK = cv::Scalar(0, 0, 0);
+static const cv::Scalar BGR_GREEN = cv::Scalar(0, 255, 0);
+static const cv::Scalar BGR_BLUE = cv::Scalar(255, 0, 0);
+static const cv::Scalar BGR_CYAN = cv::Scalar(255, 255, 0);
+static const cv::Scalar BGR_RED = cv::Scalar(0, 0, 255);
+static const cv::Scalar BGR_YELLOW = cv::Scalar(0, 255, 255);
+static const cv::Scalar BGR_MAGENTA = cv::Scalar(255, 0, 255);
+static const cv::Scalar BGR_WHITE = cv::Scalar(255, 255, 255);
+static const cv::Scalar BGR_GRAY = cv::Scalar(128, 128, 128);
+static const cv::Scalar BGR_MLAB = cv::Scalar(255, 128, 128);
+static const cv::Scalar BGR_NAVY = cv::Scalar(0, 0, 128);
+static const cv::Scalar BGR_OLIVE = cv::Scalar(0, 128, 128);
+static const cv::Scalar BGR_MAROON = cv::Scalar(0, 0, 128);
+static const cv::Scalar BGR_TEAL = cv::Scalar(128, 128, 0);
+static const cv::Scalar BGR_ROSE = cv::Scalar(128, 0, 255);
+static const cv::Scalar BGR_AZURE = cv::Scalar(255, 128, 0);
+static const cv::Scalar BGR_LIME = cv::Scalar(0, 255, 191);
+static const cv::Scalar BGR_GOLD = cv::Scalar(0, 215, 255);
+static const cv::Scalar BGR_BROWN = cv::Scalar(42, 42, 165);
+static const cv::Scalar BGR_ORANGE = cv::Scalar(0, 165, 255);
+static const cv::Scalar BGR_CHARTREuse = cv::Scalar(0, 255, 128);
+static const cv::Scalar BGR_ORANGE_red = cv::Scalar(0, 69, 255);
+static const cv::Scalar BGR_PURPLE = cv::Scalar(128, 0, 128);
+static const cv::Scalar BGR_INDIGO = cv::Scalar(130, 0, 75);
+static const cv::Scalar BGR_PINK = cv::Scalar(203, 192, 255);
+static const cv::Scalar BGR_CHERRY = cv::Scalar(99, 29, 222);
+static const cv::Scalar BGR_BLUBERRy = cv::Scalar(247, 134, 79);
+static const cv::Scalar BGR_RASPBERry = cv::Scalar(92, 11, 227);
+static const cv::Scalar BGR_SILVER = cv::Scalar(192, 192, 192);
+static const cv::Scalar BGR_VIOLET = cv::Scalar(226, 43, 138);
+static const cv::Scalar BGR_APRICOT = cv::Scalar(177, 206, 251);
+static const cv::Scalar BGR_TURQUOIse = cv::Scalar(208, 224, 64);
+static const cv::Scalar BGR_CELESTIal_blue = cv::Scalar(208, 151, 73);
+static const cv::Scalar BGR_AMETHYSt = cv::Scalar(204, 102, 153);
+static const cv::Scalar BGR_NOT_SET = cv::Scalar(-1, -1, -1);
 
 static const cv::Scalar RED_LOW1 = cv::Scalar(0, 80, 60);
 static const cv::Scalar RED_HIGH1 = cv::Scalar(18, 255, 255);
@@ -104,10 +104,30 @@ static const cv::Scalar YELLOW_HIGH = cv::Scalar(40, 255, 255);
 static const cv::Scalar ORANGE_LOW = cv::Scalar(0, 130, 130);
 static const cv::Scalar ORANGE_HIGH = cv::Scalar(40, 255, 255);
 
+#define SWITCH_NONE  -1
+#define SWITCH_OPEN  1
+#define SWITCH_CLOSE 0
+
 //### var
 std::string f_fpExec, f_paBin, f_paOs, f_paDeploy;
 //
 int f_iLineWidth = 10;
+
+Scalar bgr2hsv(Scalar bgr)
+{
+    Mat b(1, 1, CV_8UC3, bgr);
+    Mat h(1, 1, CV_8UC3, Scalar());
+    cvtColor(b, h, COLOR_BGR2HSV);
+    return Scalar(h.data[0], h.data[1], h.data[2]);
+}
+
+Scalar hsv2bgr(Scalar hsv)
+{
+    Mat h(1, 1, CV_8UC3, hsv);
+    Mat b(1, 1, CV_8UC3, Scalar());
+    cvtColor(h, b, COLOR_BGR2HSV);
+    return Scalar(b.data[0], b.data[1], b.data[2]);
+}
 
 //### fun
 void check_red_range(const Mat &in, const Mat &out)
@@ -539,12 +559,12 @@ inline Scalar findBottomRight(const Mat &img)
 inline vector<Scalar> findLeft(const Mat &img, Point p1, Point p2)
 {
     vector<Scalar> rs;
-#define GX(y) round(double(p2.x - p1.x)/(p2.y - p1.y)*(y-p1.y)+p1.x)
+#define findLeft_GX(y) round(double(p2.x - p1.x)/(p2.y - p1.y)*(y-p1.y)+p1.x)
     bool bv = abs(p1.x - p2.x) < 3;
     int ySkip = f_iLineWidth * 2;
     for (int y = p1.y + ySkip; y < p2.y - ySkip; ++y)
     {
-        int x0 = bv ? p1.x : GX(y);
+        int x0 = bv ? p1.x : findLeft_GX(y);
         for (int x = x0 - f_iLineWidth; x < x0 + f_iLineWidth; ++x)
         {
             // sum corner : L |_
@@ -586,12 +606,12 @@ inline vector<Scalar> findLeft(const Mat &img, Point p1, Point p2)
 inline vector<Scalar> findRight(const Mat &img, Point p1, Point p2)
 {
     vector<Scalar> rs;
-#define GX(y) round(double(p2.x - p1.x)/(p2.y - p1.y)*(y-p1.y)+p1.x)
+#define findRight_GX(y) round(double(p2.x - p1.x)/(p2.y - p1.y)*(y-p1.y)+p1.x)
     bool bv = abs(p1.x - p2.x) < 3;
     int ySkip = f_iLineWidth * 2;
     for (int y = p1.y + ySkip; y < p2.y - ySkip; ++y)
     {
-        int x0 = bv ? p1.x : GX(y);
+        int x0 = bv ? p1.x : findRight_GX(y);
         for (int x = x0 + f_iLineWidth - 1; x >= x0 - f_iLineWidth; --x)
         {
             // sum corner : L |_
@@ -629,18 +649,18 @@ inline vector<Scalar> findRight(const Mat &img, Point p1, Point p2)
     return rs;
 }
 
-Mat getCanny( const std::string& fp)
+Mat getCanny(const std::string &fp)
 {
     Mat src, src_gray;
     Mat dst, detected_edges;
 
-    src = imread( fp, IMREAD_COLOR );
-    dst.create( src.size(), src.type() );
-    cvtColor( src, src_gray, COLOR_BGR2GRAY );
-    blur( src_gray, detected_edges, Size(3,3) );
-    Canny( detected_edges, detected_edges, lowThreshold, lowThreshold * ::ratio, kernel_size );
+    src = imread(fp, IMREAD_COLOR);
+    dst.create(src.size(), src.type());
+    cvtColor(src, src_gray, COLOR_BGR2GRAY);
+    blur(src_gray, detected_edges, Size(3, 3));
+    Canny(detected_edges, detected_edges, lowThreshold, lowThreshold * ::ratio, kernel_size);
     dst = Scalar::all(0);
-    src.copyTo( dst, detected_edges);
+    src.copyTo(dst, detected_edges);
 
     return dst;
 }
@@ -649,20 +669,20 @@ Mat f_histMat;
 int f_histBrightness = 40;
 int f_histContrast = 40;
 
-static void updateBrightnessContrast( int, void* )
+static void updateBrightnessContrast(int, void *)
 {
     int histSize = 64;
     double a, b;
-    if(f_histContrast > 0 )
+    if (f_histContrast > 0)
     {
         double delta = 127. * f_histContrast / 100;
-        a = 255./(255. - delta*2);
-        b = a*(f_histBrightness - delta);
+        a = 255. / (255. - delta * 2);
+        b = a * (f_histBrightness - delta);
     }
     else
     {
         double delta = -128. * f_histContrast / 100;
-        a = (256.-delta*2)/255.;
+        a = (256. - delta * 2) / 255.;
         b = a * f_histBrightness + delta;
     }
 
@@ -671,21 +691,21 @@ static void updateBrightnessContrast( int, void* )
     imshow("image", dst);
     //计算直方图
     calcHist(&dst, 1, 0, Mat(), hist, 1, &histSize, 0);
-    Mat histImage = Mat::ones(200, 320, CV_8U)*255;
+    Mat histImage = Mat::ones(200, 320, CV_8U) * 255;
     //归一化
     normalize(hist, hist, 0, histImage.rows, NORM_MINMAX, CV_32F);
     histImage = Scalar::all(255);
-    int binW = cvRound((double)histImage.cols/histSize);
-    for( int i = 0; i < histSize; i++ )
-        rectangle( histImage, Point(i*binW, histImage.rows),
-                   Point((i+1)*binW, histImage.rows - cvRound(hist.at<float>(i))), Scalar::all(0), -1, 8, 0 );
+    int binW = cvRound((double) histImage.cols / histSize);
+    for (int i = 0; i < histSize; i++)
+        rectangle(histImage, Point(i * binW, histImage.rows),
+                  Point((i + 1) * binW, histImage.rows - cvRound(hist.at<float>(i))), Scalar::all(0), -1, 8, 0);
     imshow("histogram", histImage);
 }
 
-int helloHist(const std::string& fp)
+int helloHist(const std::string &fp)
 {
-    f_histMat = imread( fp );
-    if(f_histMat.empty())
+    f_histMat = imread(fp);
+    if (f_histMat.empty())
     {
         printf("Can not read the image...\n");
         return -1;
@@ -699,16 +719,44 @@ int helloHist(const std::string& fp)
     return 0;
 }
 
-// ptl : Point Top Left
-int getVPx(const Mat & img, Point p1, Point p2)
+// pb : Point Bottom, pt : Point Top
+// Disdance
+inline double getDisdance(Point p1, Point p2)
 {
-#define GX(y) round(double(y-p1.y)/(p2.y-p1.y)*(p2.x-p1.x)+p1.x)
-    bool bv = abs(p1.x - p2.x) < 3;
-    int iCount = 0;
-    for (int y = p1.y; y < p2.y; ++y)
+    return pow(pow(p2.x - p1.x, 2) + pow(p1.y - p2.y, 2), 0.5);
+}
+
+// pb : Point Bottom, pt : Point Top
+// coordinate
+Point getCoordinate(const Point &pb, const Point &pt, int len)
+{
+    if (len < 1) return pb;
+    bool bv = abs(pt.x - pb.x) < 1;
+    int x = pb.x;
+    int y = pb.y - len;
+    if (!bv)
     {
-        int x = bv ? p1.x : GX(y);
-        if (img.ptr(y,x)>CT)
+        double l = pow(pow(pt.x - pb.x, 2) + pow(pb.y - pt.y, 2), 0.5);
+        x = round((pt.x - pb.x) / l * len + pb.x);
+        y = round(pb.y - (pb.y - pt.y) / l * len);
+    }
+
+    return Point(x, y);
+}
+
+// pb : Point Bottom, pt : Point Top
+int getVPx(const Mat &img, const Point &pb, const Point &pt)
+{
+    double dis = pow(pow(pt.x - pb.x, 2) + pow(pb.y - pt.y, 2), 0.5);
+    Point pb0 = getCoordinate(pb, pt, round(dis * 6 / 20));
+
+#define getVPx_GX(y) round(double(y-pb.y)/(pt.y-pb.y)*(pt.x-pb.x)+pb.x)
+    bool bv = abs(pb0.x - pt.x) < 1;
+    int iCount = 0;
+    for (int y = pb0.y; y > pt.y; --y)
+    {
+        int x = bv ? pb0.x : getVPx_GX(y);
+        if (*img.ptr(y, x) > CT)
         {
             ++iCount;
         }
@@ -718,33 +766,172 @@ int getVPx(const Mat & img, Point p1, Point p2)
 
 // ptl : Point Top Left
 // ptr : Point Top Right
-vector<int> getVPxHist(const Mat & img, Point ptl, Point ptr, Point pbl, Point pbr, vector<Point> & pts, vector<Point> & pbs)
+// pbl : Point Bottom Left
+// pbl : Point Bottom Right
+vector<int>
+getVPxHist(const Mat &img, const Point &ptl, const Point &ptr, const Point &pbl, const Point &pbr, vector<Point> &pts, vector<Point> &pbs)
 {
     vector<int> vpxes;
     int lt = ptr.x - ptl.x;
     int lb = pbr.x - pbl.x;
-#define GTY(x) round(double(x-ptl.x)/(ptr.x-ptl.x)*(ptr.y-ptl.y)+ptl.y)
-#define GBY(x) round(double(x-pbl.x)/(pbr.x-pbl.x)*(pbr.y-pbl.y)+pbl.y)
+#define getVPxHist_GTY(x0) round(double(x0-ptl.x)/(ptr.x-ptl.x)*(ptr.y-ptl.y)+ptl.y)
+#define getVPxHist_GBY(x0) round(double(x0-pbl.x)/(pbr.x-pbl.x)*(pbr.y-pbl.y)+pbl.y)
     // CV_8UC1
     int tLen = ptr.x - ptl.x;
+    // bvt : bool vertical top, bvb : bool vertical bottom
     bool bvt = abs(ptr.y - ptl.y) < 3;
     bool bvb = abs(pbr.y - pbl.y) < 3;
     for (int tStep = 0; tStep < tLen; ++tStep)
     {
         int xt = ptl.x + tStep;
-        int yt = bvt ? ptl.y : GTY(xt);
-        Point p1(xt, yt);
+        int yt = bvt ? ptl.y : getVPxHist_GTY(xt);
+        Point pt(xt, yt);
         // bStep/tStep=lb/lt 
         int bStep = round(double(lb) / lt * tStep);
         int xb = pbl.x + bStep;
-        int yb = bvb ? pbl.y : GTY(xb);
-        Point p2(xb, yb);
-        int vpx = getVPx(img, p1, p2);
+        int yb = bvb ? pbl.y : getVPxHist_GBY(xb);
+        Point pb(xb, yb);
+        // p1 : Top Point, p2 : Bottom Point
+        int vpx = getVPx(img, pb, pt);
         vpxes.push_back(vpx);
-        pts.push_back(p1);
-        pbs.push_back(p2);
+        pts.push_back(pt);
+        pbs.push_back(pb);
     }
     return vpxes;
+}
+
+// pb : Point Bottom, pt : Point Top
+void lineHist(Mat &img, Point pb, Point pt, int len)
+{
+    if (len < 1) return;
+    bool bv = abs(pt.x - pb.x) < 1;
+    int x = pb.x;
+    int y = pb.y - len;
+    if (!bv)
+    {
+        double l = pow(pow(pt.x - pb.x, 2) + pow(pb.y - pt.y, 2), 0.5);
+        x = round((pt.x - pb.x) / l * len + pb.x);
+        y = round(pb.y - (pb.y - pt.y) / l * len);
+    }
+
+    line(img, pb, Point(x, y), BGR_GREEN);
+}
+
+int sumVpx(const vector<int> &vpxes, int start, int end)
+{
+    int r = 0;
+    for (int i = start; i < end; ++i)
+    {
+        r += vpxes[i];
+    }
+    return r;
+}
+
+// ses : [ (Start, End), (Start, End) ... ]
+void flagGradle(const vector<int> &vpxes, vector<pair<int, int> > &ses)
+{
+    if (vpxes.size() > 0)
+    {
+        int emptyStart = 0;
+        int emptyEnd = 0;
+        for (int i = 30; i < vpxes.size() - 30; ++i)
+        {
+            int l = sumVpx(vpxes, i, i + 10);
+            if (l < 30)
+            {
+                if (emptyStart == 0)
+                {
+                    if (sumVpx(vpxes, i, i + 5) > 30)
+                        emptyStart = i + 5;
+                    else
+                        emptyStart = i;
+                    emptyEnd = 0;
+                }
+            }
+            else
+            {
+                if (emptyEnd == 0)
+                {
+                    if (sumVpx(vpxes, i, i + 5) < 30)
+                        emptyEnd = i + 5;
+                    else
+                        emptyEnd = i;
+                    if (emptyStart > 0)
+                    {
+                        ses.push_back(pair<int, int>(emptyStart, emptyEnd));
+                    }
+                    emptyStart = 0;
+                }
+            }
+        }
+    }
+}
+
+// Switch State : [ (index, state), (index, state) ... ]
+void detectiveSwitch(const vector<pair<int, int> > &ses, vector<pair<int, int>> &ss)
+{
+    if (ses.size() < 3) return;
+    int s0 = 0;
+    int s1 = ses[0].first;
+    int s2 = ses[1].first;
+    int startIndex;
+    if (s1 - s0 < round(double(s2 - s1) / 0.7))
+    {
+        startIndex = 1;
+        ss.push_back(pair<int, int>(s2, SWITCH_CLOSE));
+    }
+    else
+    {
+        startIndex = 0;
+        ss.push_back(pair<int, int>(s1, SWITCH_OPEN));
+    }
+    for (int i = startIndex; i < ses.size()-1; ++i)
+    {
+        int s1 = ses[i].first;
+        int e1 = ses[i].second;
+        int s2 = ses[i+1].first;
+        // M : empty area, M : empty area
+        double M = e1 - s1;
+        double N = s2 - e1;
+        if (M<(N*0.7))
+        {
+            ss.push_back(pair<int, int>(s2, SWITCH_OPEN));
+        }
+        else
+        {
+            ss.push_back(pair<int, int>(s2, SWITCH_CLOSE));
+        }
+    }
+}
+
+int sumVpx_(const vector<int> &vpxes, int start, int end)
+{
+    int r = 0;
+    for (int i = start; i < end; ++i)
+    {
+        r += vpxes[i] * vpxes[i];
+    }
+    return r;
+}
+
+void flagGradle_(const vector<int> &vpxes, vector<pair<int, double> > &ps)
+{
+    if (vpxes.size() > 0)
+    {
+        for (int i = 10; i < vpxes.size() - 10; ++i)
+        {
+            int l = sumVpx(vpxes, i - 10, i);
+            int r = sumVpx(vpxes, i, i + 10);
+            int a = min(l, r);
+            int b = max(l, r);
+            double bi = double(b) / a;
+            if (bi > 2)
+            {
+                ps.push_back(pair<int, double>(i, bi));
+                i += 10;
+            }
+        }
+    }
 }
 
 int helloDrawLine1(const std::string &fp)
@@ -776,8 +963,8 @@ int helloDrawLine1(const std::string &fp)
     Point pBottomRight1(scBottomRight.val[1], scBottomRight.val[0]), pBottomRight2(scBottomRight.val[3], scBottomRight.val[2]);
 
 //### debug
-//    line(src, pTopLeft1, pBottomLeft1, cs_color_green);
-//    line(src, pTopRight1, pBottomRight1, cs_color_green);
+//    line(src, pTopLeft1, pBottomLeft1, BGR_GREEN);
+//    line(src, pTopRight1, pBottomRight1, BGR_GREEN);
     Mat matCanny = getCanny(fp);
     Mat matThreshold(matCanny.size(), CV_8UC1);
     threshold(matCanny, matThreshold, 30.0, 200.0, THRESH_BINARY);
@@ -786,21 +973,21 @@ int helloDrawLine1(const std::string &fp)
     vector<Scalar> rightCorners = findRight(matInrange, pTopRight1, pBottomRight1);
 
 //### debug
-//    rectangle(src, Point(scTopLeft.val[1], scTopLeft.val[0]), Point(scTopLeft.val[3], scTopLeft.val[2]), cs_color_yellow);
-//    rectangle(src, Point(scBottomLeft.val[1], scBottomLeft.val[0]), Point(scBottomLeft.val[3], scBottomLeft.val[2]), cs_color_yellow);
-//    rectangle(src, Point(scTopRight.val[1], scTopRight.val[0]), Point(scTopRight.val[3], scTopRight.val[2]), cs_color_yellow);
-//    rectangle(src, Point(scBottomRight.val[1], scBottomRight.val[0]), Point(scBottomRight.val[3], scBottomRight.val[2]), cs_color_yellow);
+//    rectangle(src, Point(scTopLeft.val[1], scTopLeft.val[0]), Point(scTopLeft.val[3], scTopLeft.val[2]), BGR_yellow);
+//    rectangle(src, Point(scBottomLeft.val[1], scBottomLeft.val[0]), Point(scBottomLeft.val[3], scBottomLeft.val[2]), BGR_yellow);
+//    rectangle(src, Point(scTopRight.val[1], scTopRight.val[0]), Point(scTopRight.val[3], scTopRight.val[2]), BGR_yellow);
+//    rectangle(src, Point(scBottomRight.val[1], scBottomRight.val[0]), Point(scBottomRight.val[3], scBottomRight.val[2]), BGR_yellow);
 
 //### debug
-//    line(src, pTopLeft1, pBottomLeft1, cs_color_green);
-//    line(src, pBottomLeft1, pBottomRight1, cs_color_green);
-//    line(src, pBottomRight1, pTopRight1, cs_color_green);
-//    line(src, pTopRight1, pTopLeft1, cs_color_green);
+//    line(src, pTopLeft1, pBottomLeft1, BGR_GREEN);
+//    line(src, pBottomLeft1, pBottomRight1, BGR_GREEN);
+//    line(src, pBottomRight1, pTopRight1, BGR_GREEN);
+//    line(src, pTopRight1, pTopLeft1, BGR_GREEN);
 //
-//    line(src, pTopLeft2, pBottomLeft2, cs_color_green);
-//    line(src, pBottomLeft2, pBottomRight2, cs_color_green);
-//    line(src, pBottomRight2, pTopRight2, cs_color_green);
-//    line(src, pTopRight2, pTopLeft2, cs_color_green);
+//    line(src, pTopLeft2, pBottomLeft2, BGR_GREEN);
+//    line(src, pBottomLeft2, pBottomRight2, BGR_GREEN);
+//    line(src, pBottomRight2, pTopRight2, BGR_GREEN);
+//    line(src, pTopRight2, pTopLeft2, BGR_GREEN);
 //
     leftCorners.insert(leftCorners.begin(), scTopLeft);
     rightCorners.insert(rightCorners.begin(), scTopRight);
@@ -814,48 +1001,180 @@ int helloDrawLine1(const std::string &fp)
             Scalar scr = rightCorners[i];
             Point pl1(scl.val[1], scl.val[0]), pl2(scl.val[3], scl.val[2]);
             Point pr1(scr.val[1], scr.val[0]), pr2(scr.val[3], scr.val[2]);
-            line(src, pl1, pr1, cs_color_green);
-            line(src, pl2, pr2, cs_color_green);
+            line(src, pl1, pr1, BGR_GREEN);
+            line(src, pl2, pr2, BGR_GREEN);
+        }
+
+        Point p1(scTopLeft.val[1], scTopLeft.val[0]);
+        Point p2(scTopRight.val[1], scTopRight.val[0]);
+        for (int i = 1; i < leftCorners.size(); ++i)
+        {
+            Scalar scl = leftCorners[i];
+            Scalar scr = rightCorners[i];
+            Point ptl(p1), ptr(p2);
+            p1.x = scl.val[1];
+            p1.y = scl.val[0];
+            p2.x = scr.val[1];
+            p2.y = scr.val[0];
+            // pts : Point Top , pbs : Point Bottom
+            vector<Point> pts, pbs;
+            vector<int> vpxes = getVPxHist(matThreshold, ptl, ptr, p1, p2, pts, pbs);
+            if (vpxes.size() > 0 && vpxes.size() == pts.size() && vpxes.size() == pbs.size())
+            {
+                // [ (Start, End), (Start, End) ... ]
+                vector<pair<int, int>> ses;
+                flagGradle(vpxes, ses);
+                for (int j = 0; j < ses.size(); ++j)
+                {
+                    line(src, pts[ses[j].first], pbs[ses[j].first], BGR_BLUE);
+                    line(src, pts[ses[j].second], pbs[ses[j].second], BGR_RED);
+//                    cout << ps[j].first << " = " << ps[j].second << endl;
+                }
+                // Switch State : [ (index, state), (index, state) ... ]
+                vector<pair<int, int>> ss;
+                detectiveSwitch(ses, ss);
+                for (int j = 0; j < ss.size(); ++j)
+                {
+                    int index = ss[j].first;
+                    int state = ss[j].second;
+                    Point pt = pts[index];
+                    pt.y += f_iLineWidth * 4;
+                    pt.x -= f_iLineWidth * 10;
+                    string s = (state == SWITCH_OPEN) ? "O" : "C";
+                    putText(src, s, pt, FONT_HERSHEY_SIMPLEX, 1, BGR_BLACK, 2);
+                }
+                std::ofstream fs(f_paDeploy + "/tmp/hist" + char(30 + i) + ".txt");
+                if (!fs.is_open())
+                {
+                    std::cout << "open file error!" << std::endl;
+                }
+                else
+                {
+                    std::stringstream ss1, ss2, ss3, ss4, ss5;
+                    for (int k = 0; k < vpxes.size(); ++k)
+                    {
+                        ss1 << std::setfill('0') << std::setw(4) << vpxes[k] << " ";
+                        ss2 << std::setfill('0') << std::setw(4) << pts[k].y << " ";
+                        ss3 << std::setfill('0') << std::setw(4) << pts[k].x << " ";
+                        ss4 << std::setfill('0') << std::setw(4) << pbs[k].y << " ";
+                        ss5 << std::setfill('0') << std::setw(4) << pbs[k].x << " ";
+                        lineHist(src, pbs[k], pts[k], vpxes[k]);
+                    }
+                    fs << ss1.str() << std::endl;
+                    fs << ss2.str() << std::endl;
+                    fs << ss3.str() << std::endl;
+                    fs << ss4.str() << std::endl;
+                    fs << ss5.str() << std::endl;
+                }
+            }
         }
     }
 
-    vector<Point> pts, pbs;
-    vector<int> vpxes = getVPxHist(matThreshold, pTopLeft1, pTopRight1, pBottomLeft1, pBottomRight1, pts, pbs);
-    if (vpxes.size() > 0 && vpxes.size() == pts.size() && vpxes.size() == pbs.size())
-    {
-        std::ofstream fs(f_paDeploy + "/tmp/hist.txt");
-        if (!fs.is_open())
-        {
-            std::cout << "open file error!" << std::endl;
-        }
-        else
-        {
-            std::stringstream ss1;
-            std::stringstream ss2;
-            std::stringstream ss3;
-            std::stringstream ss4;
-            std::stringstream ss5;
-            for (int i = 0; i < vpxes.size(); ++i)
-            {
-                ss1 << std::setfill('0') << std::setw(4) << vpxes[i] << " ";
-                ss2 << std::setfill('0') << std::setw(4) << pts[i].y << " ";
-                ss3 << std::setfill('0') << std::setw(4) << pts[i].x << " ";
-                ss4 << std::setfill('0') << std::setw(4) << pbs[i].y << " ";
-                ss5 << std::setfill('0') << std::setw(4) << pbs[i].x << " ";
-            }
-            fs << ss1.str() << std::endl;
-            fs << ss2.str() << std::endl;
-            fs << ss3.str() << std::endl;
-            fs << ss4.str() << std::endl;
-            fs << ss5.str() << std::endl;
-        }
-    }
+//    vector<Point> pts, pbs;
+//    vector<int> vpxes = getVPxHist(matThreshold, pTopLeft1, pTopRight1, pBottomLeft1, pBottomRight1, pts, pbs);
+//    if (vpxes.size() > 0 && vpxes.size() == pts.size() && vpxes.size() == pbs.size())
+//    {
+//        std::ofstream fs(f_paDeploy + "/tmp/hist.txt");
+//        if (!fs.is_open())
+//        {
+//            std::cout << "open file error!" << std::endl;
+//        }
+//        else
+//        {
+//            std::stringstream ss1;
+//            std::stringstream ss2;
+//            std::stringstream ss3;
+//            std::stringstream ss4;
+//            std::stringstream ss5;
+//            for (int i = 0; i < vpxes.size(); ++i)
+//            {
+//                ss1 << std::setfill('0') << std::setw(4) << vpxes[i] << " ";
+//                ss2 << std::setfill('0') << std::setw(4) << pts[i].y << " ";
+//                ss3 << std::setfill('0') << std::setw(4) << pts[i].x << " ";
+//                ss4 << std::setfill('0') << std::setw(4) << pbs[i].y << " ";
+//                ss5 << std::setfill('0') << std::setw(4) << pbs[i].x << " ";
+//
+//                lineHist(src, pbs[i], pts[i], vpxes[i]);
+//            }
+//            fs << ss1.str() << std::endl;
+//            fs << ss2.str() << std::endl;
+//            fs << ss3.str() << std::endl;
+//            fs << ss4.str() << std::endl;
+//            fs << ss5.str() << std::endl;
+//        }
+//    }
 
     imshow("src", src);
     imshow("matInrange", matInrange);
     imshow("matCanny", matCanny);
     imshow("matThreshold", matThreshold);
 
+    return 0;
+}
+
+void check_color_range(const Mat &in, const Scalar hsv, const Mat &out)
+{
+    const int thresh = 40;
+    Scalar minHSV(hsv.val[0] - thresh, hsv.val[1] - thresh, hsv.val[2] - thresh);
+    Scalar maxHSV(hsv.val[0] + thresh, hsv.val[1] + thresh, hsv.val[2] + thresh);
+//    Scalar minHSV(0, 230, 230);
+//    Scalar maxHSV(25, 255, 255);
+    cv::Mat hsv_image;
+    cv::cvtColor(in, hsv_image, cv::COLOR_BGR2HSV);
+    cv::inRange(hsv_image, minHSV, maxHSV, out);
+}
+
+int helloInrange(const std::string &fp)
+{
+    Mat src = imread(fp);
+    if (src.empty())
+    {
+        cout << "Could not load source image " << fp << endl;
+        return -1;
+    }
+
+    Mat matInrange(src.size(), CV_8UC1);
+    check_color_range(src, bgr2hsv(BGR_SILVER), matInrange);
+//    check_color_range(src, Scalar(55, 58.4, 100), matInrange);
+
+    imshow("src", src);
+    imshow("helloInrange", matInrange);
+
+    return 0;
+}
+
+int helloCreateImage_8UC1()
+{
+    //创建一个高400，宽200的灰度图的Mat对象
+    Mat M(600, 600, CV_8UC1);
+    namedWindow("Test");
+//    bgr2hsv(BGR_YELLOW)
+    for (int i = 0; i < M.rows; i++)
+    {
+        for (int j = 0; j < M.cols; j++)
+        {
+            if (j % 6 > 2)
+                M.at<uchar>(i, j) = i * j / 20;
+            else
+                M.at<uchar>(i, j) = 120;
+        }
+    }
+    imshow("Test", M);   //窗口中显示图像
+    return 0;
+}
+
+int helloCreateImage_8UC3()
+{
+    Mat M(Size(600, 600), CV_8UC3, BGR_ORANGE);
+    namedWindow("Test");
+    for (int i = 0; i < M.rows; i++)
+    {
+        for (int j = 0; j < M.cols; j++)
+        {
+            *M.ptr<Vec3b>(i, j) = (j % 6 > 2) ? Vec3d(BGR_ORANGE.val) : Vec3d(BGR_GOLD.val);
+        }
+    }
+    imshow("Test", M);   //窗口中显示图像
     return 0;
 }
 
@@ -873,6 +1192,7 @@ int main(int argc, char *argv[])
 //    helloInRange1(f_paDeploy + "/images/switch/a.jpeg");
     helloDrawLine1(f_paDeploy + "/images/switch/a.jpeg");
 //    helloHist(f_paDeploy + "/images/switch/a.jpeg");
+//    helloInrange(f_paDeploy + "/images/switch/a.jpeg");
 
     waitKey(0);
 
