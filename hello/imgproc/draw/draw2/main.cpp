@@ -1,3 +1,26 @@
+/**
+ *
+    img – 显示文字所在图像.
+    text – 待显示的文字.
+    org – 文字在图像中的左下角 坐标.
+    font – 字体结构体.
+    fontFace – 字体类型， 可选择字体：FONT_HERSHEY_SIMPLEX ... 以上所有类型都可以配合 FONT_HERSHEY_ITALIC使用，产生斜体效果。
+    fontScale – 字体大小，该值和字体内置大小相乘得到字体大小
+    color – 文本颜色（默认颜色存储通道为BGR）
+    thickness – 写字的线的粗细，类似于0.38的笔尖和0.5的笔尖
+    lineType – 线性.
+    bottomLeftOrigin – true, 图像数据原点在左下角. Otherwise, 图像数据原点在左上角.
+
+FONT_HERSHEY_SIMPLEX 正常大小无衬线字体
+FONT_HERSHEY_PLAIN 小号无衬线字体
+FONT_HERSHEY_DUPLEX 正常大小无衬线字体，比FONT_HERSHEY_SIMPLEX更复杂
+FONT_HERSHEY_COMPLEX 正常大小有衬线字体
+FONT_HERSHEY_TRIPLEX 正常大小有衬线字体，比FONT_HERSHEY_COMPLEX更复杂
+FONT_HERSHEY_COMPLEX_SMALL 同FONT_HERSHEY_COMPLEX
+FONT_HERSHEY_SCRIPT_SIMPLEX 手写风格字体
+FONT_HERSHEY_SCRIPT_COMPLEX 比FONT_HERSHEY_SCRIPT_SIMPLEX 更复杂
+ */
+
 #include <opencv2/opencv.hpp>
 #include<opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui.hpp>
