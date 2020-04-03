@@ -16,6 +16,8 @@ Mat src_gray;
 int thresh = 100;
 RNG rng(12345);
 
+std::string f_fpExec, f_paBin, f_paOs, f_paDeploy;
+
 /// Function header
 void thresh_callback(int, void* );
 
@@ -24,9 +26,17 @@ void thresh_callback(int, void* );
  */
 int main( int argc, char** argv )
 {
+    f_fpExec = argv[0][0] != '/' ? (argv[0][0] == '.' ? std::string(getenv("PWD"))+std::string(argv[0]).substr(1) : std::string(std::string(getenv("PWD"))+"/"+std::string(argv[0]))) : std::string(argv[0]);
+    replace(f_fpExec.begin(), f_fpExec.end(), '\\', '/');
+    f_paBin = f_fpExec.find_last_of("/\\") != std::string::npos ? f_fpExec.substr(0, f_fpExec.find_last_of("/\\")) : std::string();
+    f_paOs = f_paBin.find_last_of("/\\") != std::string::npos ? f_paBin.substr(0, f_paBin.find_last_of("/\\")) : std::string();
+    f_paDeploy = f_paOs.find_last_of("/\\") != std::string::npos ? f_paOs.substr(0, f_paOs.find_last_of("/\\")) : std::string();
+    std::cout << "f_paDeploy: " << f_fpExec << std::endl;
+
     /// Load source image
     CommandLineParser parser( argc, argv, "{@input | HappyFish.jpg | input image}" );
-    Mat src = imread( samples::findFile( parser.get<String>( "@input" ) ) );
+//    Mat src = imread( samples::findFile( parser.get<String>( "@input" ) ) );
+    Mat src = imread( f_paDeploy + "/images/switch/c.jpg" );
     if( src.empty() )
     {
       cout << "Could not open or find the image!\n" << endl;

@@ -76,8 +76,12 @@ int main(int argc, char *argv[])
     f_paDeploy = f_paOs.find_last_of("/\\") != string::npos ? f_paOs.substr(0, f_paOs.find_last_of("/\\")) : string();
     cout << "f_paDeploy: " << f_fpExec << endl;
 
-    Mat canny1 = helloCanny2(f_paDeploy + "/images/switch/a.jpeg", "switch1");
+    Mat canny1 = helloCanny2(f_paDeploy + "/images/switch/c.jpg", "switch1");
     Mat canny2 = helloCanny2(f_paDeploy + "/images/switch/a-hook-000001.png", "switch-hook-000001");
+
+    Mat matThreshold(canny1.size(), CV_8UC1);
+    threshold(canny1, matThreshold, 30.0, 200.0, THRESH_BINARY);
+
 
     FileStorage f1(f_paDeploy + "/tmp/001.mat", FileStorage::WRITE);
     f1 << "canny1" << canny1;
@@ -87,6 +91,7 @@ int main(int argc, char *argv[])
 
     imshow("canny1", canny1);
     imshow("canny2", canny2);
+    imshow("matThreshold", matThreshold);
 
     /// Wait until user exit program by pressing a key
     waitKey(0);

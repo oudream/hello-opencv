@@ -13,6 +13,8 @@
 using namespace cv;
 using namespace std;
 
+std::string f_fpExec, f_paBin, f_paOs, f_paDeploy;
+
 /// Global Variables
 Mat src, hsv, mask;
 
@@ -28,8 +30,21 @@ void pickPoint (int event, int x, int y, int, void* );
  */
 int main( int, char** argv )
 {
+
+    f_fpExec = argv[0][0] != '/' ? (argv[0][0] == '.' ? std::string(getenv("PWD"))+std::string(argv[0]).substr(1) : std::string(std::string(getenv("PWD"))+"/"+std::string(argv[0]))) : std::string(argv[0]);
+    replace(f_fpExec.begin(), f_fpExec.end(), '\\', '/');
+    f_paBin = f_fpExec.find_last_of("/\\") != std::string::npos ? f_fpExec.substr(0, f_fpExec.find_last_of("/\\")) : std::string();
+    f_paOs = f_paBin.find_last_of("/\\") != std::string::npos ? f_paBin.substr(0, f_paBin.find_last_of("/\\")) : std::string();
+    f_paDeploy = f_paOs.find_last_of("/\\") != std::string::npos ? f_paOs.substr(0, f_paOs.find_last_of("/\\")) : std::string();
+    std::cout << "f_paDeploy: " << f_fpExec << std::endl;
+
+    string pa = f_paDeploy + "/images/switch/a.jpeg";
+    string pc = f_paDeploy + "/images/switch/c.jpg";
+    string fpDraw1 = f_paDeploy + "/images/draw1.jpg";
+    string fpCards = f_paDeploy + "/data/cards.png";
+
     /// Read the image
-    src = imread( argv[1] );
+    src = imread( pa );
 
     /// Transform it to HSV
     cvtColor( src, hsv, COLOR_BGR2HSV );
